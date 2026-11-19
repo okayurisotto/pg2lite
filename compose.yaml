@@ -1,0 +1,23 @@
+services:
+  postgres:
+    image: docker.io/library/postgres:16.16-alpine3.24
+    environment:
+      POSTGRES_USER: example-username
+      POSTGRES_PASSWORD: example-password
+      POSTGRES_DB: example-database
+    volumes:
+      - ./dump.sql:/dump.sql:ro
+
+  pglite:
+    image: docker.io/oven/bun:1.4.5-alpine
+    init: true
+    command: [sleep, infinity]
+    environment:
+      PG2LITE_HOST: postgres
+      PG2LITE_PORT: 5432
+      PG2LITE_USERNAME: example-username
+      PG2LITE_PASSWORD: example-password
+      PG2LITE_DATABASE: example-database
+      PG2LITE_OUT_DIR: pg2lite
+    volumes:
+      - ./:/home/bun/app

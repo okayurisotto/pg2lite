@@ -1,0 +1,15 @@
+{
+  "name": "pg2lite",
+  "license": "MIT",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "@electric-sql/pglite": "0.5.16"
+  },
+  "devDependencies": {
+    "@tsconfig/node-lts": "26.0.1",
+    "@tsconfig/strictest": "2.0.9",
+    "@types/bun": "1.4.4",
+    "typescript": "7.0.2"
+  }
+}
